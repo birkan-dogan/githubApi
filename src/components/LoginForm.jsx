@@ -9,7 +9,7 @@ const LoginForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     sessionStorage.setItem("email", email);
-    navigate("/home");
+    navigate("home");
   };
 
   return (
