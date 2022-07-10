@@ -19,7 +19,6 @@ const Followers = ({ followers }) => {
     <div>
       {loading ? (
         <div>
-          {" "}
           <img src={loading} alt="loading..." />
         </div>
       ) : (
