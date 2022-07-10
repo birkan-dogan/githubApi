@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Paginate from "./Paginate";
 import CardFollowers from "./CardFollowers";
-import loading from "../assets/loading.gif";
+import loadingGif from "../assets/loading.gif";
 import { Container, Row } from "react-bootstrap";
 
 const Followers = ({ followers }) => {
@@ -19,7 +19,7 @@ const Followers = ({ followers }) => {
     <div>
       {loading ? (
         <div>
-          <img src={loading} alt="loading..." />
+          <img src={loadingGif} alt="loading..." />
         </div>
       ) : (
         <div>
