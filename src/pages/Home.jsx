@@ -2,18 +2,13 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import SearchUser from "../components/SearchUser";
 import Followers from "../components/Followers";
+
 const Home = () => {
   const [allFollowers, setAllFollowers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
 
-  const getFollowers = async () => {
-    const { data } = await axios.get(
-      "https://api.github.com/users/birkan-dogan/following?per_page=100"
-    );
-    setAllFollowers(data);
-    // console.log(data);
-  };
+  const getFollowers = async () => {};
   const handleChange = (e) => {
     setSearch(e.target.value);
   };
