@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import SearchUser from "../components/SearchUser";
+import Account from "../components/Account";
 import Followers from "../components/Followers";
 
 const Home = () => {
@@ -10,7 +11,7 @@ const Home = () => {
       <div className="search-user">
         <SearchUser setUser={setUser} />
       </div>
-      {/* <Followers followers={followersList} /> */}
+      <div className="tabs">{user && <Account user={user} />}</div>
     </div>
   );
 };
