@@ -44,6 +44,8 @@ export const tokens = (mode) => ({
           600: "#858585",
         },
         primary: {
+          100: "#040509",
+          200: "#080b12",
           300: "#0c101b",
           400: "#f2f0f0", // manually changed
           500: "#141b2d",
@@ -57,7 +59,7 @@ export const tokens = (mode) => ({
         },
         redAccent: {
           300: "#832f2c",
-          400: "#af3f3b",
+          400: "#B9345A",
           500: "#db4f4a",
           600: "#e2726e",
         },
