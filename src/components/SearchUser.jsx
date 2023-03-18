@@ -27,6 +27,7 @@ const SearchUser = ({ setUser }) => {
         value={search}
         onChange={(e) => setSearch(e.target.value)}
         placeholder="Enter Github Username"
+        required
         style={{
           background: colors.redAccent[400],
         }}
