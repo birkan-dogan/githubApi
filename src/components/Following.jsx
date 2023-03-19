@@ -3,22 +3,24 @@ import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import Account from "./Account";
 
-const Followers = () => {
-  const [followers, setFollowers] = useState([]);
+const Following = () => {
+  const [following, setFollowing] = useState([]);
   const location = useLocation();
   const user = location.state;
 
-  const getFollowers = async function () {
+  const getFollowing = async function () {
     try {
-      const { data } = await axios(`${user.followers_url}`);
-      setFollowers(data);
+      const { data } = await axios(
+        `https://api.github.com/users/${user?.login}/following`
+      );
+      setFollowing(data);
     } catch (error) {
       console.log(error);
     }
   };
 
   useEffect(() => {
-    getFollowers();
+    getFollowing();
   }, []);
 
   return (
@@ -26,14 +28,13 @@ const Followers = () => {
       <div className="logo">
         <a href={user.html_url} target="_blank">
           <img src={user.avatar_url} />
-          <span>{user.name}'s followers list</span>
+          <span>{user.name}'s following list</span>
         </a>
       </div>
-
       <div className="tab tab-2">
-        {followers?.map((follower) => (
-          <div className="followers" key={follower.id}>
-            <Account user={follower} />
+        {following?.map((user) => (
+          <div className="followers" key={user.id}>
+            <Account user={user} />
           </div>
         ))}
       </div>
@@ -41,4 +42,4 @@ const Followers = () => {
   );
 };
 
-export default Followers;
+export default Following;

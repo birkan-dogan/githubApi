@@ -1,35 +1,17 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useState } from "react";
 import SearchUser from "../components/SearchUser";
+import Account from "../components/Account";
 import Followers from "../components/Followers";
-const Home = () => {
-  const [allFollowers, setAllFollowers] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [search, setSearch] = useState("");
 
-  const getFollowers = async () => {
-    const { data } = await axios.get(
-      "https://api.github.com/users/birkan-dogan/following?per_page=100"
-    );
-    setAllFollowers(data);
-    // console.log(data);
-  };
-  const handleChange = (e) => {
-    setSearch(e.target.value);
-  };
-  useEffect(() => {
-    getFollowers();
-    setTimeout(() => {
-      setLoading(false);
-    }, 3000);
-  }, []);
-  const followersList = allFollowers.filter((follower) =>
-    follower.login.includes(search)
-  );
+const Home = () => {
+  const [user, setUser] = useState("");
+
   return (
-    <div>
-      <SearchUser handleChange={handleChange} />
-      <Followers followers={{ followersList, loading }} />
+    <div className="home">
+      <div className="search-user">
+        <SearchUser setUser={setUser} />
+      </div>
+      <div className="tabs">{user && <Account user={user} />}</div>
     </div>
   );
 };

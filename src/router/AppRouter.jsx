@@ -1,20 +1,18 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import React from "react";
-import About from "../pages/About";
 import Home from "../pages/Home";
-import Login from "../pages/Login";
-import NavBar from "../components/NavBar";
-import NotFound from "../pages/NotFound";
+import NavBar from "../components/Navbar";
+import Followers from "../components/Followers";
+import Following from "../components/Following";
 
 const AppRouter = () => {
   return (
     <BrowserRouter>
       <NavBar />
       <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="about" element={<About />} />
-        <Route path="home" element={<Home />} />
-        <Route path="*" element={<NotFound />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/followers" element={<Followers />} />
+        <Route path="/following" element={<Following />} />
       </Routes>
     </BrowserRouter>
   );

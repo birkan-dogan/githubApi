@@ -1,36 +1,28 @@
-import React, { useState } from "react";
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import { NavLink } from "react-router-dom";
+import React from "react";
+import useThemeContext from "../theme";
+import "@theme-toggles/react/css/Expand.css";
+import { Expand } from "@theme-toggles/react";
+import { useNavigate } from "react-router-dom";
 
 const NavBar = () => {
-  const [isOpen, setIsOpen] = useState(
-    sessionStorage.getItem("email") || false
-  );
-  const handleClick = () => {
-    setIsOpen(false);
-    sessionStorage.clear();
-  };
+  const { colorMode, colors } = useThemeContext();
+  const navigate = useNavigate();
+
   return (
-    <Navbar bg="success" variant="dark">
-      {isOpen ? (
-        <Container>
-          <Navbar.Brand href="/home">Clarus</Navbar.Brand>
-          <Nav className="me-auto">
-            <NavLink to="/home">Home</NavLink>
-            <NavLink to="/about">About</NavLink>
-            <NavLink to="/" onClick={handleClick}>
-              LogOut
-            </NavLink>
-          </Nav>
-        </Container>
-      ) : (
-        <Container>
-          <Navbar.Brand href="">Navbar</Navbar.Brand>
-        </Container>
-      )}
-    </Navbar>
+    <nav className="navbar">
+      <h1
+        style={{ color: colors.blueAccent[300] }}
+        onClick={() => navigate("/")}
+      >
+        Working on Github API
+      </h1>
+      <Expand
+        duration={750}
+        onToggle={() => colorMode.toggleColorMode()}
+        className="toggle"
+        style={{ color: colors.redAccent[400] }}
+      />
+    </nav>
   );
 };
 
