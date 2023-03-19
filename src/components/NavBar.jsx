@@ -4,7 +4,7 @@ import "@theme-toggles/react/css/Expand.css";
 import { Expand } from "@theme-toggles/react";
 import { useNavigate } from "react-router-dom";
 
-const NavBar = () => {
+const Navbar = () => {
   const { colorMode, colors } = useThemeContext();
   const navigate = useNavigate();
 
@@ -26,4 +26,4 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;
+export default Navbar;
